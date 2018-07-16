@@ -1,13 +1,13 @@
 package com.woodystudio;
 
-public abstract class Category {
+public abstract class Pokers {
 
-    public Category() {
+    public Pokers() {
     }
 
     protected abstract int getOrder();
 
-    public boolean compare(Category other) {
+    public boolean compare(Pokers other) {
         if (this.getOrder() == other.getOrder()) {
             return compareValues(other);
         }
@@ -15,5 +15,5 @@ public abstract class Category {
         return this.getOrder() > other.getOrder();
     }
 
-    protected abstract boolean compareValues(Category other);
+    protected abstract boolean compareValues(Pokers other);
 }

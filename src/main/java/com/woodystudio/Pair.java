@@ -2,7 +2,7 @@ package com.woodystudio;
 
 import java.util.List;
 
-public class Pair extends Category {
+public class Pair extends Pokers {
     private Poker pairPoker;
     private List<Poker> restPokers;
 
@@ -17,7 +17,7 @@ public class Pair extends Category {
     }
 
     @Override
-    protected boolean compareValues(Category other) {
+    protected boolean compareValues(Pokers other) {
         int pairValue = this.pairPoker.getValue().getValue();
         int otherPairValue = ((Pair) other).pairPoker.getValue().getValue();
         if (pairValue == otherPairValue) {

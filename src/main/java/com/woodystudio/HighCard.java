@@ -2,7 +2,7 @@ package com.woodystudio;
 
 import java.util.List;
 
-public class HighCard extends Category {
+public class HighCard extends Pokers {
 
     private List<Poker> pokers;
 
@@ -17,7 +17,7 @@ public class HighCard extends Category {
     }
 
     @Override
-    protected boolean compareValues(Category other) {
+    protected boolean compareValues(Pokers other) {
         for (Poker poker : this.pokers) {
             int count = 0;
             for (Poker otherPoker : ((HighCard) other).pokers) {
@@ -30,5 +30,11 @@ public class HighCard extends Category {
             }
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        String content = "";
+        return super.toString();
     }
 }

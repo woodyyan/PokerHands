@@ -1,6 +1,6 @@
 package com.woodystudio;
 
-public class TwoPairs extends Category {
+public class TwoPairs extends Pokers {
 
     private Poker firstPair;
     private Poker secondPair;
@@ -18,7 +18,7 @@ public class TwoPairs extends Category {
     }
 
     @Override
-    protected boolean compareValues(Category other) {
+    protected boolean compareValues(Pokers other) {
         TwoPairs otherTwoPairs = (TwoPairs) other;
         if (isPairEquals(otherTwoPairs)) {
             return poker.getValue().getValue() > otherTwoPairs.poker.getValue().getValue();
