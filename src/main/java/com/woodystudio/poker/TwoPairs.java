@@ -1,4 +1,6 @@
-package com.woodystudio;
+package com.woodystudio.poker;
+
+import com.woodystudio.base.Poker;
 
 public class TwoPairs extends Pokers {
 
@@ -18,7 +20,7 @@ public class TwoPairs extends Pokers {
     }
 
     @Override
-    protected boolean compareValues(Pokers other) {
+    protected boolean compareSameLevelValues(Pokers other) {
         TwoPairs otherTwoPairs = (TwoPairs) other;
         if (isPairEquals(otherTwoPairs)) {
             return poker.getValue().getValue() > otherTwoPairs.poker.getValue().getValue();

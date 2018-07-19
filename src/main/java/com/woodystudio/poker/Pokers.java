@@ -1,4 +1,4 @@
-package com.woodystudio;
+package com.woodystudio.poker;
 
 public abstract class Pokers {
 
@@ -9,11 +9,11 @@ public abstract class Pokers {
 
     public boolean compare(Pokers other) {
         if (this.getOrder() == other.getOrder()) {
-            return compareValues(other);
+            return compareSameLevelValues(other);
         }
 
         return this.getOrder() > other.getOrder();
     }
 
-    protected abstract boolean compareValues(Pokers other);
+    protected abstract boolean compareSameLevelValues(Pokers other);
 }

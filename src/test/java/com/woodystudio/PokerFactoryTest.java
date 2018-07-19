@@ -1,14 +1,28 @@
 package com.woodystudio;
 
+import com.woodystudio.handler.PokerFactory;
+import com.woodystudio.poker.HighCard;
+import com.woodystudio.poker.Pair;
+import com.woodystudio.poker.Pokers;
+import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class PokerFactoryTest {
+    private PokerFactory factory = new PokerFactory();
+
     @Test
     public void shouldCreateHighCardWhenInputIsHighCard() {
-        PokerFactory factory = new PokerFactory();
-        String input = "";
-        factory.create(input);
+        String input = "2H 3D 5S 9C KD";
+        Pokers pokers = factory.create(input);
+
+        Assert.assertTrue(pokers instanceof HighCard);
+    }
+
+    @Test
+    public void shouldCreatePairWhenInputIsPair() {
+        String input = "2H 3D 5S 9C 9D";
+        Pokers pokers = factory.create(input);
+
+        Assert.assertTrue(pokers instanceof Pair);
     }
 }

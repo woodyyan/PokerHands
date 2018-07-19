@@ -1,5 +1,10 @@
 package com.woodystudio;
 
+import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
+import com.woodystudio.base.Suit;
+import com.woodystudio.poker.HighCard;
+import com.woodystudio.poker.Pair;
 import org.junit.Assert;
 import org.junit.Test;
 

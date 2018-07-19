@@ -1,4 +1,4 @@
-package com.woodystudio;
+package com.woodystudio.base;
 
 public class Poker {
     private Suit suit;

@@ -1,5 +1,9 @@
 package com.woodystudio;
 
+import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
+import com.woodystudio.base.Suit;
+import com.woodystudio.poker.TwoPairs;
 import org.junit.Assert;
 import org.junit.Test;
 

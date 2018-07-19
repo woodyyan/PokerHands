@@ -1,5 +1,8 @@
 package com.woodystudio;
 
+import com.woodystudio.handler.PokerFactory;
+import com.woodystudio.poker.Pokers;
+
 public class PokerGame {
     private String playerOne;
     private String playerTwo;

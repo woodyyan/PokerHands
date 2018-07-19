@@ -1,5 +1,12 @@
 package com.woodystudio;
 
+import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
+import com.woodystudio.base.Suit;
+import com.woodystudio.handler.PokerFactory;
+import com.woodystudio.poker.HighCard;
+import com.woodystudio.poker.Pair;
+import com.woodystudio.poker.Pokers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,9 +41,9 @@ public class PokerGameTest {
 
     private class TestPokerFactory extends PokerFactory {
         @Override
-        public Pokers create(String player) {
+        public Pokers create(String cards) {
             List<Poker> pokers = new ArrayList<>();
-            if (player.equals(playerOne)) {
+            if (cards.equals(playerOne)) {
                 return new HighCard(pokers);
             } else {
                 return new Pair(new Poker(Suit.Diamonds, PokerValue.K), new ArrayList<>());

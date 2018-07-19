@@ -1,4 +1,6 @@
-package com.woodystudio;
+package com.woodystudio.poker;
+
+import com.woodystudio.base.Poker;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class HighCard extends Pokers {
     }
 
     @Override
-    protected boolean compareValues(Pokers other) {
+    protected boolean compareSameLevelValues(Pokers other) {
         for (Poker poker : this.pokers) {
             int count = 0;
             for (Poker otherPoker : ((HighCard) other).pokers) {

@@ -1,4 +1,6 @@
-package com.woodystudio;
+package com.woodystudio.poker;
+
+import com.woodystudio.base.Poker;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class Pair extends Pokers {
     }
 
     @Override
-    protected boolean compareValues(Pokers other) {
+    protected boolean compareSameLevelValues(Pokers other) {
         int pairValue = this.pairPoker.getValue().getValue();
         int otherPairValue = ((Pair) other).pairPoker.getValue().getValue();
         if (pairValue == otherPairValue) {
