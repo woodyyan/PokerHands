@@ -17,15 +17,12 @@ public class StraightFlushHandler extends BasePokerHandler {
     private static final int LAST_INDEX = 4;
 
     @Override
-    public Pokers createPokers(List<Poker> pokers) {
+    public Pokers createPokersBySelf(List<Poker> pokers) {
 
         if (isSameSuit(pokers) && isStraight(pokers)) {
             return new StraightFlush(pokers);
         }
 
-        if (this.getNextHandler() != null) {
-            return this.getNextHandler().createPokers(pokers);
-        }
         return null;
     }
 

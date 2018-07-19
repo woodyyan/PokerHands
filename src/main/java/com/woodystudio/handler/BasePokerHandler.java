@@ -9,7 +9,17 @@ public abstract class BasePokerHandler {
 
     private BasePokerHandler nextHandler;
 
-    public abstract Pokers createPokers(List<Poker> pokers);
+    public Pokers createPokers(List<Poker> pokers) {
+        Pokers pokersBySelf = createPokersBySelf(pokers);
+
+        if (pokersBySelf == null && this.getNextHandler() != null) {
+            return this.getNextHandler().createPokers(pokers);
+        }
+
+        return pokersBySelf;
+    }
+
+    protected abstract Pokers createPokersBySelf(List<Poker> pokers);
 
     public BasePokerHandler getNextHandler() {
         return nextHandler;

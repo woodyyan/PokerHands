@@ -7,7 +7,7 @@ import java.util.List;
 
 public class FlushHandler extends BasePokerHandler {
     @Override
-    public Pokers createPokers(List<Poker> pokers) {
+    public Pokers createPokersBySelf(List<Poker> pokers) {
         return null;
     }
 }

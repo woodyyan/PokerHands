@@ -16,7 +16,7 @@ public class FourOfAKingHandler extends BasePokerHandler {
     private static final long ONE = 1;
 
     @Override
-    public Pokers createPokers(List<Poker> pokers) {
+    public Pokers createPokersBySelf(List<Poker> pokers) {
         if (pokers.size() == POKER_SIZE) {
             List<Poker> fourPokers = pokers.subList(FIRST_INDEX, FOUR_INDEX);
             Poker lastPoker = pokers.get(LAST_INDEX);
@@ -27,10 +27,6 @@ public class FourOfAKingHandler extends BasePokerHandler {
                 Poker restPoker = fourPokers.stream().filter(p -> !p.equals(lastPoker)).findFirst().get();
                 return new FourOfAKing(lastPoker, restPoker);
             }
-        }
-
-        if (this.getNextHandler() != null) {
-            return this.getNextHandler().createPokers(pokers);
         }
 
         return null;
