@@ -2,6 +2,8 @@ package com.woodystudio.poker;
 
 public abstract class Pokers {
 
+    public static final int POKER_SIZE = 5;
+
     public Pokers() {
     }
 

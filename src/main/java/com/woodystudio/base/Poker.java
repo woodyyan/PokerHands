@@ -24,4 +24,14 @@ public class Poker {
     public void setValue(PokerValue value) {
         this.value = value;
     }
+
+    @Override
+    public int hashCode() {
+        return value.getValue();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.getValue().equals(((Poker) obj).getValue());
+    }
 }
