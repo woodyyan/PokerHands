@@ -8,7 +8,14 @@ public class Straight extends Pokers {
     private List<Poker> pokers;
 
     public Straight(List<Poker> pokers) {
+        this.pokers = pokers;
+    }
 
+    public List<Poker> getPokers() {
+        return pokers;
+    }
+
+    public void setPokers(List<Poker> pokers) {
         this.pokers = pokers;
     }
 

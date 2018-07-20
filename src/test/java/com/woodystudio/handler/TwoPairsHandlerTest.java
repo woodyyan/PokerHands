@@ -23,7 +23,9 @@ public class TwoPairsHandlerTest {
         pokers.add(new Poker(Suit.Clubs, PokerValue.V4));
         Pokers result = handler.createPokersBySelf(pokers);
 
-        Assert.assertTrue(result instanceof TwoPairs);
+        Assert.assertTrue(((TwoPairs) result).getFirstPairValue().equals(PokerValue.V2));
+        Assert.assertTrue(((TwoPairs) result).getSecondPair().equals(PokerValue.V3));
+        Assert.assertTrue(((TwoPairs) result).getPoker().equals(new Poker(Suit.Clubs, PokerValue.V4)));
     }
 
     @Test

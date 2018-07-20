@@ -23,7 +23,9 @@ public class FourOfAKingHandlerTest {
         pokers.add(new Poker(Suit.Clubs, PokerValue.V3));
         Pokers result = handler.createPokers(pokers);
 
-        Assert.assertTrue(result instanceof FourOfAKing);
+        Assert.assertTrue(((FourOfAKing) result).getKingValue().equals(PokerValue.V2));
+        Assert.assertTrue(((FourOfAKing) result).getRestPoker().getValue().equals(PokerValue.V3));
+        Assert.assertTrue(((FourOfAKing) result).getRestPoker().getSuit().equals(Suit.Clubs));
     }
 
     @Test
@@ -37,7 +39,9 @@ public class FourOfAKingHandlerTest {
         pokers.add(new Poker(Suit.Clubs, PokerValue.V2));
         Pokers result = handler.createPokers(pokers);
 
-        Assert.assertTrue(result instanceof FourOfAKing);
+        Assert.assertTrue(((FourOfAKing) result).getKingValue().equals(PokerValue.V2));
+        Assert.assertTrue(((FourOfAKing) result).getRestPoker().getValue().equals(PokerValue.V3));
+        Assert.assertTrue(((FourOfAKing) result).getRestPoker().getSuit().equals(Suit.Diamonds));
     }
 
     @Test

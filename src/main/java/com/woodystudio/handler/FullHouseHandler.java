@@ -20,9 +20,9 @@ public class FullHouseHandler extends BasePokerHandler {
             Poker firstPoker = distinctPokers.get(FIRST_INDEX);
             Poker secondPoker = distinctPokers.get(LAST_INDEX);
             if (pokers.stream().filter(p -> p.equals(firstPoker)).count() == THREE_POKER_SIZE) {
-                return new FullHouse(firstPoker, secondPoker);
+                return new FullHouse(firstPoker.getValue(), secondPoker.getValue());
             } else if (pokers.stream().filter(p -> p.equals(secondPoker)).count() == THREE_POKER_SIZE) {
-                return new FullHouse(secondPoker, firstPoker);
+                return new FullHouse(secondPoker.getValue(), firstPoker.getValue());
             }
         }
         return null;

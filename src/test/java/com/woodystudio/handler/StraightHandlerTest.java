@@ -23,7 +23,7 @@ public class StraightHandlerTest {
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V6));
         Pokers result = handler.createPokersBySelf(pokers);
 
-        Assert.assertTrue(result instanceof Straight);
+        Assert.assertEquals(5, ((Straight) result).getPokers().size());
     }
 
     @Test

@@ -3,7 +3,6 @@ package com.woodystudio.handler;
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.PokerValue;
 import com.woodystudio.base.Suit;
-import com.woodystudio.poker.HighCard;
 import com.woodystudio.poker.Pokers;
 import com.woodystudio.poker.StraightFlush;
 import org.junit.Assert;
@@ -24,7 +23,7 @@ public class StraightFlushHandlerTest {
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V6));
         Pokers result = handler.createPokers(pokers);
 
-        Assert.assertTrue(result instanceof StraightFlush);
+        Assert.assertEquals(5, ((StraightFlush) result).getPokers().size());
     }
 
     @Test

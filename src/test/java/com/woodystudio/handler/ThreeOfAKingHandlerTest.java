@@ -23,7 +23,8 @@ public class ThreeOfAKingHandlerTest {
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V4));
         Pokers result = handler.createPokersBySelf(pokers);
 
-        Assert.assertTrue(result instanceof ThreeOfAKing);
+        Assert.assertTrue(((ThreeOfAKing) result).getKingPokerValue().equals(PokerValue.V2));
+        Assert.assertEquals(2, ((ThreeOfAKing) result).getRestPokers().size());
     }
 
     @Test

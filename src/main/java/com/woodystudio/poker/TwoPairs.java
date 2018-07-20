@@ -1,16 +1,40 @@
 package com.woodystudio.poker;
 
 import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
 
 public class TwoPairs extends Pokers {
-
-    private Poker firstPair;
-    private Poker secondPair;
+    private PokerValue firstPairValue;
+    private PokerValue secondPairValue;
     private Poker poker;
 
-    public TwoPairs(Poker firstPair, Poker secondPair, Poker poker) {
-        this.firstPair = firstPair;
-        this.secondPair = secondPair;
+    public TwoPairs(PokerValue firstPairValue, PokerValue secondPairValue, Poker poker) {
+        this.firstPairValue = firstPairValue;
+        this.secondPairValue = secondPairValue;
+        this.poker = poker;
+    }
+
+    public PokerValue getFirstPairValue() {
+        return firstPairValue;
+    }
+
+    public void setFirstPairValue(PokerValue firstPairValue) {
+        this.firstPairValue = firstPairValue;
+    }
+
+    public PokerValue getSecondPair() {
+        return secondPairValue;
+    }
+
+    public void setSecondPair(PokerValue secondPair) {
+        this.secondPairValue = secondPair;
+    }
+
+    public Poker getPoker() {
+        return poker;
+    }
+
+    public void setPoker(Poker poker) {
         this.poker = poker;
     }
 
@@ -29,16 +53,16 @@ public class TwoPairs extends Pokers {
     }
 
     private boolean isPairEquals(TwoPairs otherTwoPairs) {
-        return (this.firstPair.getValue().getValue() == otherTwoPairs.firstPair.getValue().getValue()
-                && this.secondPair.getValue().getValue() == otherTwoPairs.secondPair.getValue().getValue())
-                || (this.secondPair.getValue().getValue() == otherTwoPairs.firstPair.getValue().getValue()
-                && this.firstPair.getValue().getValue() == otherTwoPairs.secondPair.getValue().getValue());
+        return (this.firstPairValue.getValue() == otherTwoPairs.firstPairValue.getValue()
+                && this.secondPairValue.getValue() == otherTwoPairs.secondPairValue.getValue())
+                || (this.secondPairValue.getValue() == otherTwoPairs.firstPairValue.getValue()
+                && this.firstPairValue.getValue() == otherTwoPairs.secondPairValue.getValue());
     }
 
     private boolean isPairGreaterThanOthers(TwoPairs otherTwoPairs) {
-        return (this.firstPair.getValue().getValue() > otherTwoPairs.firstPair.getValue().getValue()
-                && this.firstPair.getValue().getValue() > otherTwoPairs.secondPair.getValue().getValue())
-                || (this.secondPair.getValue().getValue() > otherTwoPairs.firstPair.getValue().getValue()
-                && this.secondPair.getValue().getValue() > otherTwoPairs.secondPair.getValue().getValue());
+        return (this.firstPairValue.getValue() > otherTwoPairs.firstPairValue.getValue()
+                && this.firstPairValue.getValue() > otherTwoPairs.secondPairValue.getValue())
+                || (this.secondPairValue.getValue() > otherTwoPairs.firstPairValue.getValue()
+                && this.secondPairValue.getValue() > otherTwoPairs.secondPairValue.getValue());
     }
 }

@@ -29,7 +29,7 @@ public class TwoPairsHandler extends BasePokerHandler {
                 }
             }
             if (count == 2) {
-                return new TwoPairs(firstPairPoker, secondPairPoker, restPoker);
+                return new TwoPairs(firstPairPoker.getValue(), secondPairPoker.getValue(), restPoker);
             }
         }
         return null;

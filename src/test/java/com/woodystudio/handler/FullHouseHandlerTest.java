@@ -25,7 +25,8 @@ public class FullHouseHandlerTest {
 
         Pokers result = houseHandler.createPokersBySelf(pokers);
 
-        Assert.assertTrue(result instanceof FullHouse);
+        Assert.assertTrue(((FullHouse) result).getFullPokerValue().equals(PokerValue.V3));
+        Assert.assertTrue(((FullHouse) result).getPairPokerValue().equals(PokerValue.V2));
     }
 
     @Test
@@ -41,7 +42,8 @@ public class FullHouseHandlerTest {
 
         Pokers result = houseHandler.createPokersBySelf(pokers);
 
-        Assert.assertTrue(result instanceof FullHouse);
+        Assert.assertTrue(((FullHouse) result).getFullPokerValue().equals(PokerValue.V3));
+        Assert.assertTrue(((FullHouse) result).getPairPokerValue().equals(PokerValue.V2));
     }
 
     @Test

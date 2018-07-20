@@ -23,7 +23,8 @@ public class FlushHandlerTest {
         pokers.add(new Poker(Suit.Diamonds, PokerValue.J));
         Pokers result = handler.createPokersBySelf(pokers);
 
-        Assert.assertTrue(result instanceof Flush);
+        Assert.assertTrue(((Flush) result).getSuit().equals(Suit.Diamonds));
+        Assert.assertEquals(5, ((Flush) result).getPokers().size());
     }
 
     @Test

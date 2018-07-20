@@ -1,17 +1,33 @@
 package com.woodystudio.poker;
 
 import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
 
 import java.util.List;
 
 public class ThreeOfAKing extends Pokers {
-    private final Poker kingPoker;
-    private final List<Poker> restPokers;
+    private PokerValue kingPokerValue;
+    private List<Poker> restPokers;
 
-    public ThreeOfAKing(Poker kingPoker, List<Poker> restPokers) {
-
-        this.kingPoker = kingPoker;
+    public ThreeOfAKing(PokerValue kingPokerValue, List<Poker> restPokers) {
+        this.kingPokerValue = kingPokerValue;
         this.restPokers = restPokers;
+    }
+
+    public void setKingPokerValue(PokerValue kingPokerValue) {
+        this.kingPokerValue = kingPokerValue;
+    }
+
+    public void setRestPokers(List<Poker> restPokers) {
+        this.restPokers = restPokers;
+    }
+
+    public PokerValue getKingPokerValue() {
+        return kingPokerValue;
+    }
+
+    public List<Poker> getRestPokers() {
+        return restPokers;
     }
 
     @Override

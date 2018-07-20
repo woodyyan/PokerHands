@@ -1,14 +1,30 @@
 package com.woodystudio.poker;
 
-import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
 
 public class FullHouse extends Pokers {
-    private Poker fullPoker;
-    private Poker pairPoker;
+    private PokerValue fullPokerValue;
+    private PokerValue pairPokerValue;
 
-    public FullHouse(Poker fullPoker, Poker pairPoker) {
-        this.fullPoker = fullPoker;
-        this.pairPoker = pairPoker;
+    public FullHouse(PokerValue fullPokerValue, PokerValue pairPokerValue) {
+        this.fullPokerValue = fullPokerValue;
+        this.pairPokerValue = pairPokerValue;
+    }
+
+    public PokerValue getFullPokerValue() {
+        return fullPokerValue;
+    }
+
+    public void setFullPokerValue(PokerValue fullPokerValue) {
+        this.fullPokerValue = fullPokerValue;
+    }
+
+    public PokerValue getPairPokerValue() {
+        return pairPokerValue;
+    }
+
+    public void setPairPokerValue(PokerValue pairPokerValue) {
+        this.pairPokerValue = pairPokerValue;
     }
 
     @Override

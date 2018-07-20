@@ -14,7 +14,7 @@ public class ThreeOfAKingHandler extends BasePokerHandler {
         if (distinctPokers.size() == 3) {
             for (Poker poker : distinctPokers) {
                 if (pokers.stream().filter(it -> it.equals(poker)).count() == 3) {
-                    return new ThreeOfAKing(poker, distinctPokers.stream().filter(it -> !it.equals(poker)).collect(Collectors.toList()));
+                    return new ThreeOfAKing(poker.getValue(), distinctPokers.stream().filter(it -> !it.equals(poker)).collect(Collectors.toList()));
                 }
             }
         }

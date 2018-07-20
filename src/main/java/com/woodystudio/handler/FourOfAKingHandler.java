@@ -22,10 +22,10 @@ public class FourOfAKingHandler extends BasePokerHandler {
             Poker lastPoker = pokers.get(LAST_INDEX);
             if (fourPokers.stream().distinct().count() == ONE && !fourPokers.get(FIRST_INDEX).equals(lastPoker)) {
                 Poker kingPoker = fourPokers.get(FIRST_INDEX);
-                return new FourOfAKing(kingPoker, lastPoker);
+                return new FourOfAKing(kingPoker.getValue(), lastPoker);
             } else if (fourPokers.stream().distinct().count() == TWO && fourPokers.contains(lastPoker)) {
                 Poker restPoker = fourPokers.stream().filter(p -> !p.equals(lastPoker)).findFirst().get();
-                return new FourOfAKing(lastPoker, restPoker);
+                return new FourOfAKing(lastPoker.getValue(), restPoker);
             }
         }
 
