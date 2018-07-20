@@ -5,11 +5,18 @@ import com.woodystudio.base.Poker;
 import java.util.List;
 
 public class HighCard extends Pokers {
-
     private List<Poker> pokers;
 
     public HighCard(List<Poker> pokers) {
         //TODO validate pokers
+        this.pokers = pokers;
+    }
+
+    public List<Poker> getPokers() {
+        return pokers;
+    }
+
+    public void setPokers(List<Poker> pokers) {
         this.pokers = pokers;
     }
 
