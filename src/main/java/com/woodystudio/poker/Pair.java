@@ -5,6 +5,22 @@ import com.woodystudio.base.Poker;
 import java.util.List;
 
 public class Pair extends Pokers {
+    public Poker getPairPoker() {
+        return pairPoker;
+    }
+
+    public void setPairPoker(Poker pairPoker) {
+        this.pairPoker = pairPoker;
+    }
+
+    public List<Poker> getRestPokers() {
+        return restPokers;
+    }
+
+    public void setRestPokers(List<Poker> restPokers) {
+        this.restPokers = restPokers;
+    }
+
     private Poker pairPoker;
     private List<Poker> restPokers;
 
