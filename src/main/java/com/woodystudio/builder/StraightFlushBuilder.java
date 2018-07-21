@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.Suit;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import static com.woodystudio.poker.Pokers.POKER_SIZE;
 
-public class StraightFlushHandler extends BasePokerHandler {
+public class StraightFlushBuilder extends BasePokerBuilder {
 
     private static final int SUIT_SIZE = 1;
     private static final int FIRST_INDEX = 0;

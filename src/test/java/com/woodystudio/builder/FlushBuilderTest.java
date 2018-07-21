@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.PokerValue;
@@ -11,10 +11,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlushHandlerTest {
+public class FlushBuilderTest {
     @Test
     public void shouldReturnFlushGivenPokersAreFlush() {
-        FlushHandler handler = new FlushHandler();
+        FlushBuilder handler = new FlushBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V3));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V5));
@@ -29,7 +29,7 @@ public class FlushHandlerTest {
 
     @Test
     public void shouldReturnNullGivenPokersAreNotFlush() {
-        FlushHandler handler = new FlushHandler();
+        FlushBuilder handler = new FlushBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V3));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V5));

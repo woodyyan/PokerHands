@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.poker.Pokers;
@@ -7,7 +7,7 @@ import com.woodystudio.poker.ThreeOfAKing;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ThreeOfAKingHandler extends BasePokerHandler {
+public class ThreeOfAKingBuilder extends BasePokerBuilder {
     @Override
     public Pokers createPokersBySelf(List<Poker> pokers) {
         List<Poker> distinctPokers = pokers.stream().distinct().collect(Collectors.toList());

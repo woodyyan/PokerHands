@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.poker.FullHouse;
@@ -7,7 +7,7 @@ import com.woodystudio.poker.Pokers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FullHouseHandler extends BasePokerHandler {
+public class FullHouseBuilder extends BasePokerBuilder {
     private static final int FULL_HOUSE_POKER_SIZE = 2;
     private static final int FIRST_INDEX = 0;
     private static final int LAST_INDEX = 1;

@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.PokerValue;
@@ -11,10 +11,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FullHouseHandlerTest {
+public class FullHouseBuilderTest {
     @Test
     public void shouldReturnFullHouseWhenPokersAreFullHouse() {
-        FullHouseHandler houseHandler = new FullHouseHandler();
+        FullHouseBuilder houseHandler = new FullHouseBuilder();
 
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
@@ -31,7 +31,7 @@ public class FullHouseHandlerTest {
 
     @Test
     public void shouldReturnFullHouseWhenPokersAreFullHouseWithoutOrder() {
-        FullHouseHandler houseHandler = new FullHouseHandler();
+        FullHouseBuilder houseHandler = new FullHouseBuilder();
 
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V3));
@@ -48,7 +48,7 @@ public class FullHouseHandlerTest {
 
     @Test
     public void shouldReturnNullWhenPokersAreFourOfAKing() {
-        FullHouseHandler houseHandler = new FullHouseHandler();
+        FullHouseBuilder houseHandler = new FullHouseBuilder();
 
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
@@ -64,7 +64,7 @@ public class FullHouseHandlerTest {
 
     @Test
     public void shouldReturnNullWhenPokersOnlyHasThreePokers() {
-        FullHouseHandler houseHandler = new FullHouseHandler();
+        FullHouseBuilder houseHandler = new FullHouseBuilder();
 
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));

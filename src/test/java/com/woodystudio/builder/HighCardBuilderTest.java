@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.PokerValue;
@@ -11,10 +11,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HighCardHandlerTest {
+public class HighCardBuilderTest {
     @Test
     public void shouldReturnHighCardWhenPokersAreHighCard() {
-        HighCardHandler handler = new HighCardHandler();
+        HighCardBuilder handler = new HighCardBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Clubs, PokerValue.V2));
         pokers.add(new Poker(Suit.Clubs, PokerValue.V3));

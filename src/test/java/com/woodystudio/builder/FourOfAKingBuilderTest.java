@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.PokerValue;
@@ -11,10 +11,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FourOfAKingHandlerTest {
+public class FourOfAKingBuilderTest {
     @Test
     public void shouldReturnFourOfAKingWhenPokersHaveFourSamePoker() {
-        FourOfAKingHandler handler = new FourOfAKingHandler();
+        FourOfAKingBuilder handler = new FourOfAKingBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
@@ -30,7 +30,7 @@ public class FourOfAKingHandlerTest {
 
     @Test
     public void shouldReturnFourOfAKingWhenPokersHaveFourSamePokerAndFirstIsNotKing() {
-        FourOfAKingHandler handler = new FourOfAKingHandler();
+        FourOfAKingBuilder handler = new FourOfAKingBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V3));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
@@ -46,7 +46,7 @@ public class FourOfAKingHandlerTest {
 
     @Test
     public void shouldReturnNullWhenPokersAreNotFourOfAKing() {
-        FourOfAKingHandler handler = new FourOfAKingHandler();
+        FourOfAKingBuilder handler = new FourOfAKingBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V3));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
@@ -60,7 +60,7 @@ public class FourOfAKingHandlerTest {
 
     @Test
     public void shouldReturnNullWhenPokersSizeAreNotFive() {
-        FourOfAKingHandler handler = new FourOfAKingHandler();
+        FourOfAKingBuilder handler = new FourOfAKingBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V3));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));

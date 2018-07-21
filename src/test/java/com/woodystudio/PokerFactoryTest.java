@@ -1,6 +1,6 @@
 package com.woodystudio;
 
-import com.woodystudio.handler.PokerFactory;
+import com.woodystudio.builder.PokerFactory;
 import com.woodystudio.poker.HighCard;
 import com.woodystudio.poker.Pair;
 import com.woodystudio.poker.Pokers;

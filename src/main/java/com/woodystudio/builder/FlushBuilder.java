@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.Suit;
@@ -7,7 +7,7 @@ import com.woodystudio.poker.Pokers;
 
 import java.util.List;
 
-public class FlushHandler extends BasePokerHandler {
+public class FlushBuilder extends BasePokerBuilder {
     private static final int FLUSH_SIZE = 1;
     private static final int FIRST_INDEX = 0;
 

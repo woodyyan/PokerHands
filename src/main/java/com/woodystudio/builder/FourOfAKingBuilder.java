@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.poker.FourOfAKing;
@@ -8,7 +8,7 @@ import java.util.List;
 
 import static com.woodystudio.poker.Pokers.POKER_SIZE;
 
-public class FourOfAKingHandler extends BasePokerHandler {
+public class FourOfAKingBuilder extends BasePokerBuilder {
     private static final long TWO = 2;
     private static final int FIRST_INDEX = 0;
     private static final int LAST_INDEX = 4;

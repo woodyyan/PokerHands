@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.PokerValue;
@@ -11,10 +11,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThreeOfAKingHandlerTest {
+public class ThreeOfAKingBuilderTest {
     @Test
     public void shouldReturnThreeOfAkingWhenPokersAreThreeOfAKing() {
-        ThreeOfAKingHandler handler = new ThreeOfAKingHandler();
+        ThreeOfAKingBuilder handler = new ThreeOfAKingBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
@@ -29,7 +29,7 @@ public class ThreeOfAKingHandlerTest {
 
     @Test
     public void shouldReturnNullWhenPokersAreTwoPairs() {
-        ThreeOfAKingHandler handler = new ThreeOfAKingHandler();
+        ThreeOfAKingBuilder handler = new ThreeOfAKingBuilder();
         List<Poker> pokers = new ArrayList<>();
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V2));

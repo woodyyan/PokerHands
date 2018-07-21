@@ -1,4 +1,4 @@
-package com.woodystudio.handler;
+package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
 import com.woodystudio.poker.Pokers;
@@ -7,7 +7,7 @@ import com.woodystudio.poker.TwoPairs;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TwoPairsHandler extends BasePokerHandler {
+public class TwoPairsBuilder extends BasePokerBuilder {
     @Override
     public Pokers createPokersBySelf(List<Poker> pokers) {
         List<Poker> distinctPokers = pokers.stream().distinct().collect(Collectors.toList());
