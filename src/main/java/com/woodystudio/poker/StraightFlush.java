@@ -26,6 +26,7 @@ public class StraightFlush extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
+        //TODO
         return false;
     }
 }
