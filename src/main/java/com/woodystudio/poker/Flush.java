@@ -10,16 +10,8 @@ public class Flush extends Pokers {
         return suit;
     }
 
-    public void setSuit(Suit suit) {
-        this.suit = suit;
-    }
-
     public List<Poker> getPokers() {
         return pokers;
-    }
-
-    public void setPokers(List<Poker> pokers) {
-        this.pokers = pokers;
     }
 
     private Suit suit;
@@ -38,6 +30,17 @@ public class Flush extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
+        for (Poker poker : this.getPokers()) {
+            int count = 0;
+            for (Poker otherPoker : ((Flush) other).getPokers()) {
+                if (poker.getValue().getValue() > otherPoker.getValue().getValue()) {
+                    count++;
+                }
+            }
+            if (count == this.getPokers().size()) {
+                return true;
+            }
+        }
         return false;
     }
 }
