@@ -23,7 +23,8 @@ public class StraightFlushBuilderTest {
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V6));
         Pokers result = handler.createPokers(pokers);
 
-        Assert.assertEquals(5, ((StraightFlush) result).getPokers().size());
+        Assert.assertEquals(Suit.Diamonds, ((StraightFlush) result).getSuit());
+        Assert.assertEquals(PokerValue.V6, ((StraightFlush) result).getMaxValue());
     }
 
     @Test

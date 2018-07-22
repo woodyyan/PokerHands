@@ -1,22 +1,23 @@
 package com.woodystudio.poker;
 
-import com.woodystudio.base.Poker;
-
-import java.util.List;
+import com.woodystudio.base.PokerValue;
+import com.woodystudio.base.Suit;
 
 public class StraightFlush extends Pokers {
-    private List<Poker> pokers;
+    private Suit suit;
+    private PokerValue maxValue;
 
-    public StraightFlush(List<Poker> pokers) {
-        this.pokers = pokers;
+    public StraightFlush(Suit suit, PokerValue maxValue) {
+        this.suit = suit;
+        this.maxValue = maxValue;
     }
 
-    public List<Poker> getPokers() {
-        return pokers;
+    public Suit getSuit() {
+        return suit;
     }
 
-    public void setPokers(List<Poker> pokers) {
-        this.pokers = pokers;
+    public PokerValue getMaxValue() {
+        return maxValue;
     }
 
     @Override
@@ -26,7 +27,6 @@ public class StraightFlush extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
-        //TODO
-        return false;
+        return this.getMaxValue().getValue() > ((StraightFlush) other).getMaxValue().getValue();
     }
 }

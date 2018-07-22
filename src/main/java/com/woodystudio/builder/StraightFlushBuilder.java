@@ -1,6 +1,7 @@
 package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
 import com.woodystudio.base.Suit;
 import com.woodystudio.poker.Pokers;
 import com.woodystudio.poker.StraightFlush;
@@ -19,27 +20,33 @@ public class StraightFlushBuilder extends BasePokerBuilder {
     @Override
     public Pokers createPokersBySelf(List<Poker> pokers) {
 
-        if (isSameSuit(pokers) && isStraight(pokers)) {
-            return new StraightFlush(pokers);
+        Suit suit = getSameSuitIfHas(pokers);
+        PokerValue value = getMaxStraightValueIfHas(pokers);
+        if (suit != null && value != null) {
+            return new StraightFlush(suit, value);
         }
 
         return null;
     }
 
-    private boolean isStraight(List<Poker> pokers) {
-        List<Integer> values = pokers.stream().map(p -> p.getValue().getValue()).sorted().collect(Collectors.toList());
+    private PokerValue getMaxStraightValueIfHas(List<Poker> pokers) {
+        List<PokerValue> values = pokers.stream().map(Poker::getValue).sorted().collect(Collectors.toList());
         if (values.size() == POKER_SIZE) {
-            Integer first = values.get(FIRST_INDEX);
-            Integer last = values.get(LAST_INDEX);
+            Integer first = values.get(FIRST_INDEX).getValue();
+            Integer last = values.get(LAST_INDEX).getValue();
             if (last - first == LAST_INDEX) {
-                return true;
+                return values.get(LAST_INDEX);
             }
         }
-        return false;
+        return null;
     }
 
-    private boolean isSameSuit(List<Poker> pokers) {
+    private Suit getSameSuitIfHas(List<Poker> pokers) {
         List<Suit> suits = pokers.stream().map(Poker::getSuit).distinct().collect(Collectors.toList());
-        return suits.size() == SUIT_SIZE;
+        if (suits.size() == SUIT_SIZE) {
+            return suits.get(0);
+        }
+
+        return null;
     }
 }
