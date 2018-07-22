@@ -16,16 +16,8 @@ public class FourOfAKing extends Pokers {
         return kingValue;
     }
 
-    public void setKingValue(PokerValue kingPoker) {
-        this.kingValue = kingPoker;
-    }
-
     public Poker getRestPoker() {
         return restPoker;
-    }
-
-    public void setRestPoker(Poker restPoker) {
-        this.restPoker = restPoker;
     }
 
     @Override
@@ -35,7 +27,11 @@ public class FourOfAKing extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
-        //TODO
-        return false;
+        FourOfAKing otherPokers = (FourOfAKing) other;
+        if (this.getKingValue() == otherPokers.getKingValue()) {
+            return this.getRestPoker().getValue().getValue() > otherPokers.getRestPoker().getValue().getValue();
+        }
+
+        return this.getKingValue().getValue() > otherPokers.getKingValue().getValue();
     }
 }
