@@ -15,16 +15,8 @@ public class FullHouse extends Pokers {
         return fullPokerValue;
     }
 
-    public void setFullPokerValue(PokerValue fullPokerValue) {
-        this.fullPokerValue = fullPokerValue;
-    }
-
     public PokerValue getPairPokerValue() {
         return pairPokerValue;
-    }
-
-    public void setPairPokerValue(PokerValue pairPokerValue) {
-        this.pairPokerValue = pairPokerValue;
     }
 
     @Override
@@ -34,7 +26,12 @@ public class FullHouse extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
-        //TODO
-        return false;
+        FullHouse otherFullHouse = (FullHouse) other;
+
+        if (this.getFullPokerValue().equals(otherFullHouse.getFullPokerValue())) {
+            return this.getPairPokerValue().getValue() > otherFullHouse.getPairPokerValue().getValue();
+        }
+
+        return this.getFullPokerValue().getValue() > otherFullHouse.getFullPokerValue().getValue();
     }
 }
