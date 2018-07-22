@@ -14,14 +14,6 @@ public class ThreeOfAKing extends Pokers {
         this.restPokers = restPokers;
     }
 
-    public void setKingPokerValue(PokerValue kingPokerValue) {
-        this.kingPokerValue = kingPokerValue;
-    }
-
-    public void setRestPokers(List<Poker> restPokers) {
-        this.restPokers = restPokers;
-    }
-
     public PokerValue getKingPokerValue() {
         return kingPokerValue;
     }
@@ -37,7 +29,20 @@ public class ThreeOfAKing extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
-        //TODO
-        return false;
+        ThreeOfAKing otherThree = (ThreeOfAKing) other;
+        if (this.getKingPokerValue().equals(otherThree.getKingPokerValue())) {
+            for (Poker poker : this.getRestPokers()) {
+                int count = 0;
+                for (Poker otherPoker : otherThree.getRestPokers()) {
+                    if (poker.getValue().getValue() > otherPoker.getValue().getValue()) {
+                        count++;
+                    }
+                }
+                if (count == this.getRestPokers().size()) {
+                    return true;
+                }
+            }
+        }
+        return this.getKingPokerValue().getValue() > otherThree.getKingPokerValue().getValue();
     }
 }
