@@ -1,22 +1,12 @@
 package com.woodystudio.poker;
 
-import com.woodystudio.base.Poker;
-
-import java.util.List;
+import com.woodystudio.base.PokerValue;
 
 public class Straight extends Pokers {
-    private List<Poker> pokers;
+    private PokerValue maxValue;
 
-    public Straight(List<Poker> pokers) {
-        this.pokers = pokers;
-    }
-
-    public List<Poker> getPokers() {
-        return pokers;
-    }
-
-    public void setPokers(List<Poker> pokers) {
-        this.pokers = pokers;
+    public Straight(PokerValue maxValue) {
+        this.maxValue = maxValue;
     }
 
     @Override
@@ -26,7 +16,10 @@ public class Straight extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
-        //TODO
-        return false;
+        return this.getMaxValue().getValue() > ((Straight) other).getMaxValue().getValue();
+    }
+
+    public PokerValue getMaxValue() {
+        return maxValue;
     }
 }

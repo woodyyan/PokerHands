@@ -1,6 +1,7 @@
 package com.woodystudio.builder;
 
 import com.woodystudio.base.Poker;
+import com.woodystudio.base.PokerValue;
 import com.woodystudio.poker.Pokers;
 import com.woodystudio.poker.Straight;
 
@@ -15,21 +16,23 @@ public class StraightBuilder extends BasePokerBuilder {
 
     @Override
     public Pokers createPokersBySelf(List<Poker> pokers) {
-        if (isStraight(pokers)) {
-            return new Straight(pokers);
+        PokerValue value = getMaxStraightValueIfHas(pokers);
+        if (value != null) {
+            return new Straight(value);
         }
+
         return null;
     }
 
-    private boolean isStraight(List<Poker> pokers) {
-        List<Integer> values = pokers.stream().map(p -> p.getValue().getValue()).sorted().collect(Collectors.toList());
+    private PokerValue getMaxStraightValueIfHas(List<Poker> pokers) {
+        List<PokerValue> values = pokers.stream().map(Poker::getValue).sorted().collect(Collectors.toList());
         if (values.size() == POKER_SIZE) {
-            Integer first = values.get(FIRST_INDEX);
-            Integer last = values.get(LAST_INDEX);
+            Integer first = values.get(FIRST_INDEX).getValue();
+            Integer last = values.get(LAST_INDEX).getValue();
             if (last - first == LAST_INDEX) {
-                return true;
+                return values.get(LAST_INDEX);
             }
         }
-        return false;
+        return null;
     }
 }

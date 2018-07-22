@@ -23,7 +23,7 @@ public class StraightBuilderTest {
         pokers.add(new Poker(Suit.Diamonds, PokerValue.V6));
         Pokers result = handler.createPokersBySelf(pokers);
 
-        Assert.assertEquals(5, ((Straight) result).getPokers().size());
+        Assert.assertEquals(PokerValue.V6, ((Straight) result).getMaxValue());
     }
 
     @Test
