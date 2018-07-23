@@ -31,11 +31,11 @@ public class ThreeOfAKingTest {
     public void shouldReturnTrueWhenThreeIsSame() {
         List<Poker> loserPokers = new ArrayList<>();
         loserPokers.add(new Poker(Suit.Clubs, PokerValue.V4));
-        loserPokers.add(new Poker(Suit.Clubs, PokerValue.V5));
+        loserPokers.add(new Poker(Suit.Clubs, PokerValue.V6));
         ThreeOfAKing loser = new ThreeOfAKing(PokerValue.V2, loserPokers);
 
         List<Poker> winnerPokers = new ArrayList<>();
-        winnerPokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
+        winnerPokers.add(new Poker(Suit.Diamonds, PokerValue.V5));
         winnerPokers.add(new Poker(Suit.Diamonds, PokerValue.V6));
         ThreeOfAKing winner = new ThreeOfAKing(PokerValue.V2, winnerPokers);
 
