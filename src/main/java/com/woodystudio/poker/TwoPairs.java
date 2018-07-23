@@ -3,6 +3,11 @@ package com.woodystudio.poker;
 import com.woodystudio.base.Poker;
 import com.woodystudio.base.PokerValue;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.sun.tools.javac.util.List.of;
+
 public class TwoPairs extends Pokers {
     private PokerValue firstPairValue;
     private PokerValue secondPairValue;
@@ -18,24 +23,12 @@ public class TwoPairs extends Pokers {
         return firstPairValue;
     }
 
-    public void setFirstPairValue(PokerValue firstPairValue) {
-        this.firstPairValue = firstPairValue;
-    }
-
     public PokerValue getSecondPair() {
         return secondPairValue;
     }
 
-    public void setSecondPair(PokerValue secondPair) {
-        this.secondPairValue = secondPair;
-    }
-
     public Poker getPoker() {
         return poker;
-    }
-
-    public void setPoker(Poker poker) {
-        this.poker = poker;
     }
 
     @Override
@@ -47,7 +40,7 @@ public class TwoPairs extends Pokers {
     protected boolean compareSameLevelValues(Pokers other) {
         TwoPairs otherTwoPairs = (TwoPairs) other;
         if (isPairEquals(otherTwoPairs)) {
-            return poker.getValue().getValue() > otherTwoPairs.poker.getValue().getValue();
+            return this.getPoker().getValue().getValue() > otherTwoPairs.getPoker().getValue().getValue();
         }
         return isPairGreaterThanOthers(otherTwoPairs);
     }
@@ -60,9 +53,17 @@ public class TwoPairs extends Pokers {
     }
 
     private boolean isPairGreaterThanOthers(TwoPairs otherTwoPairs) {
-        return (this.firstPairValue.getValue() > otherTwoPairs.firstPairValue.getValue()
-                && this.firstPairValue.getValue() > otherTwoPairs.secondPairValue.getValue())
-                || (this.secondPairValue.getValue() > otherTwoPairs.firstPairValue.getValue()
-                && this.secondPairValue.getValue() > otherTwoPairs.secondPairValue.getValue());
+        List<Integer> values = new ArrayList<>(of(this.getFirstPairValue().getValue(), this.getSecondPair().getValue()));
+        List<Integer> otherValues = new ArrayList<>(of(otherTwoPairs.getFirstPairValue().getValue(), otherTwoPairs.getSecondPair().getValue()));
+
+        Integer max = values.stream().mapToInt(it -> it).max().orElse(0);
+        Integer otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
+        while (max.equals(otherMax)) {
+            values.remove(max);
+            otherValues.remove(otherMax);
+            max = values.stream().mapToInt(it -> it).max().orElse(0);
+            otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
+        }
+        return max > otherMax;
     }
 }

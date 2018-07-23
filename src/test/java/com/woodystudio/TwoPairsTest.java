@@ -27,4 +27,24 @@ public class TwoPairsTest {
 
         Assert.assertTrue(isWin);
     }
+
+    @Test
+    public void shouldTwoPairsCanCompareWhenTheyHasSamePairsWithNotSameOrder() {
+        TwoPairs loseTwoPairs = new TwoPairs(PokerValue.V5, PokerValue.V4, new Poker(Suit.Diamonds, PokerValue.Q));
+        TwoPairs winTwoPairs = new TwoPairs(PokerValue.V4, PokerValue.V5, new Poker(Suit.Diamonds, PokerValue.K));
+
+        boolean isWin = winTwoPairs.compare(loseTwoPairs);
+
+        Assert.assertTrue(isWin);
+    }
+
+    @Test
+    public void shouldTwoPairsCanCompareWhenTheyHasSamePairsWithReverseOrder() {
+        TwoPairs loseTwoPairs = new TwoPairs(PokerValue.V5, PokerValue.V3, new Poker(Suit.Diamonds, PokerValue.Q));
+        TwoPairs winTwoPairs = new TwoPairs(PokerValue.V5, PokerValue.V4, new Poker(Suit.Diamonds, PokerValue.K));
+
+        boolean isWin = winTwoPairs.compare(loseTwoPairs);
+
+        Assert.assertTrue(isWin);
+    }
 }
