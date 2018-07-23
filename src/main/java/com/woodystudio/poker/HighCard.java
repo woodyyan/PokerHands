@@ -3,21 +3,17 @@ package com.woodystudio.poker;
 import com.woodystudio.base.Poker;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HighCard extends Pokers {
     private List<Poker> pokers;
 
     public HighCard(List<Poker> pokers) {
-        //TODO validate pokers
         this.pokers = pokers;
     }
 
     public List<Poker> getPokers() {
         return pokers;
-    }
-
-    public void setPokers(List<Poker> pokers) {
-        this.pokers = pokers;
     }
 
     @Override
@@ -27,23 +23,17 @@ public class HighCard extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
-        for (Poker poker : this.pokers) {
-            int count = 0;
-            for (Poker otherPoker : ((HighCard) other).pokers) {
-                if (poker.getValue().getValue() > otherPoker.getValue().getValue()) {
-                    count++;
-                }
-            }
-            if (count == pokers.size()) {
-                return true;
-            }
-        }
-        return false;
-    }
+        List<Integer> values = this.getPokers().stream().map(it -> it.getValue().getValue()).collect(Collectors.toList());
+        List<Integer> otherValues = ((HighCard) other).getPokers().stream().map(it -> it.getValue().getValue()).collect(Collectors.toList());
 
-    @Override
-    public String toString() {
-        String content = "";
-        return super.toString();
+        Integer max = values.stream().mapToInt(it -> it).max().orElse(0);
+        Integer otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
+        while (max.equals(otherMax)) {
+            values.remove(max);
+            otherValues.remove(otherMax);
+            max = values.stream().mapToInt(it -> it).max().orElse(0);
+            otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
+        }
+        return max > otherMax;
     }
 }
