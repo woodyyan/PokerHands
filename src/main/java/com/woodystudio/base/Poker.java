@@ -13,16 +13,8 @@ public class Poker {
         return suit;
     }
 
-    public void setSuit(Suit suit) {
-        this.suit = suit;
-    }
-
     public PokerValue getValue() {
         return value;
-    }
-
-    public void setValue(PokerValue value) {
-        this.value = value;
     }
 
     @Override
