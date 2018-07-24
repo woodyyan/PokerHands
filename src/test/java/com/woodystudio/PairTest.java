@@ -32,14 +32,14 @@ public class PairTest {
     @Test
     public void shouldOnePairCanWinAnotherPairWhenThenHaveSamePair() {
         List<Poker> losePokers = new ArrayList<>();
-        losePokers.add(new Poker(Suit.Clubs, PokerValue.V4));
+        losePokers.add(new Poker(Suit.Clubs, PokerValue.V5));
         losePokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
         losePokers.add(new Poker(Suit.Clubs, PokerValue.V3));
         Pair losePair = new Pair(new Poker(Suit.Clubs, PokerValue.V6), losePokers);
         List<Poker> winPokers = new ArrayList<>();
         winPokers.add(new Poker(Suit.Clubs, PokerValue.V4));
-        winPokers.add(new Poker(Suit.Diamonds, PokerValue.V2));
-        winPokers.add(new Poker(Suit.Clubs, PokerValue.V5));
+        winPokers.add(new Poker(Suit.Diamonds, PokerValue.V5));
+        winPokers.add(new Poker(Suit.Clubs, PokerValue.V2));
         Pair winPair = new Pair(new Poker(Suit.Clubs, PokerValue.V6), winPokers);
 
         boolean isWin = winPair.compare(losePair);
