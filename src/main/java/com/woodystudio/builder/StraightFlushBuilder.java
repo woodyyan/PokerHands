@@ -44,7 +44,7 @@ public class StraightFlushBuilder extends BasePokerBuilder {
     private Suit getSameSuitIfHas(List<Poker> pokers) {
         List<Suit> suits = pokers.stream().map(Poker::getSuit).distinct().collect(Collectors.toList());
         if (suits.size() == SUIT_SIZE) {
-            return suits.get(0);
+            return suits.get(FIRST_INDEX);
         }
 
         return null;
