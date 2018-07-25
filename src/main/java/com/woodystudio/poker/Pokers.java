@@ -1,5 +1,7 @@
 package com.woodystudio.poker;
 
+import java.util.List;
+
 public abstract class Pokers {
 
     public static final int POKER_SIZE = 5;
@@ -18,4 +20,16 @@ public abstract class Pokers {
     }
 
     protected abstract boolean compareSameLevelValues(Pokers other);
+
+    protected boolean compareBasedValues(List<Integer> mainValues, List<Integer> otherValues) {
+        Integer max = mainValues.stream().mapToInt(it -> it).max().orElse(0);
+        Integer otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
+        while (max.equals(otherMax)) {
+            mainValues.remove(max);
+            otherValues.remove(otherMax);
+            max = mainValues.stream().mapToInt(it -> it).max().orElse(0);
+            otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
+        }
+        return max > otherMax;
+    }
 }

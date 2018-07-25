@@ -46,8 +46,10 @@ public class PokerFactory {
         String[] segments = cards.split(" ");
         List<Poker> pokers = new ArrayList<>();
         for (String seg : segments) {
-            String firstChar = seg.substring(0, 1);
-            String secondChar = seg.substring(1);
+            int beginIndex = 0;
+            int endIndex = 1;
+            String firstChar = seg.substring(beginIndex, endIndex);
+            String secondChar = seg.substring(endIndex);
             PokerValue pokerValue = PokerValue.parse(firstChar);
             Suit suit = Suit.parse(secondChar);
             Poker poker = new Poker(suit, pokerValue);

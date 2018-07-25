@@ -35,15 +35,7 @@ public class ThreeOfAKing extends Pokers {
             List<Integer> values = this.getRestPokers().stream().map(it -> it.getValue().getValue()).collect(Collectors.toList());
             List<Integer> otherValues = ((ThreeOfAKing) other).getRestPokers().stream().map(it -> it.getValue().getValue()).collect(Collectors.toList());
 
-            Integer max = values.stream().mapToInt(it -> it).max().orElse(0);
-            Integer otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
-            while (max.equals(otherMax)) {
-                values.remove(max);
-                otherValues.remove(otherMax);
-                max = values.stream().mapToInt(it -> it).max().orElse(0);
-                otherMax = otherValues.stream().mapToInt(it -> it).max().orElse(0);
-            }
-            return max > otherMax;
+            return compareBasedValues(values, otherValues);
         }
         return this.getKingPokerValue().getValue() > otherThree.getKingPokerValue().getValue();
     }

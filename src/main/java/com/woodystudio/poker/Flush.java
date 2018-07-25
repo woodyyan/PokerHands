@@ -4,6 +4,7 @@ import com.woodystudio.base.Poker;
 import com.woodystudio.base.Suit;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Flush extends Pokers {
     public Suit getSuit() {
@@ -30,17 +31,9 @@ public class Flush extends Pokers {
 
     @Override
     protected boolean compareSameLevelValues(Pokers other) {
-        for (Poker poker : this.getPokers()) {
-            int count = 0;
-            for (Poker otherPoker : ((Flush) other).getPokers()) {
-                if (poker.getValue().getValue() > otherPoker.getValue().getValue()) {
-                    count++;
-                }
-            }
-            if (count == this.getPokers().size()) {
-                return true;
-            }
-        }
-        return false;
+        List<Integer> values = this.getPokers().stream().map(it -> it.getValue().getValue()).collect(Collectors.toList());
+        List<Integer> otherValues = ((HighCard) other).getPokers().stream().map(it -> it.getValue().getValue()).collect(Collectors.toList());
+
+        return compareBasedValues(values, otherValues);
     }
 }
